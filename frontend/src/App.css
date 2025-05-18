@@ -190,3 +190,44 @@ input[type="file"]::-webkit-file-upload-button:hover {
   border: 0.5px solid #fff;
   cursor: pointer;
 }
+
+.drag-drop-zone {
+  border: 2px dashed #64748b; /* slate-500 */
+  background: #1e293b;
+  border-radius: 14px;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  position: relative;
+  margin-bottom: 1.5rem;
+  border: 1px solid #f59e42;
+}
+
+.drag-drop-zone.active {
+  border-color: #f59e42;
+  background: #334155;
+}
+
+.drag-drop-content svg {
+  margin-bottom: 1rem;
+}
+
+.drag-drop-content p {
+  color: #fff;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.upload-link {
+  color: #f59e42;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.upload-link:hover {
+  color: #fff;
+  background: #f59e42;
+  border-radius: 4px;
+  padding: 0 4px;
+}

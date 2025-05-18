@@ -34,7 +34,7 @@ function App() {
       <nav className="navbar">
         <div className="navbar-logo">
           <img src="/logo1.png" alt="Logo" />
-          <span>Skill Extractor</span>
+          <span>TalentTagger</span>
         </div>
       </nav>
       <main className="main-content">
