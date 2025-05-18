@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import axios from 'axios';
+import React, { useState } from 'react';
 import Upload from './components/upload';
 import Results from './components/Results';
 import './App.css';
@@ -8,6 +8,8 @@ function App() {
   const [skills, setSkills] = useState(null);
   const [error, setError] = useState(null);
   const [isUploading, setIsUploading] = useState(false);
+
+
 
   const handleUpload = async (file) => {
     setIsUploading(true);
@@ -29,6 +31,7 @@ function App() {
     }
   };
 
+
   return (
     <div className="App">
       <nav className="navbar">
@@ -36,6 +39,7 @@ function App() {
           <img src="/logo1.png" alt="Logo" />
           <span>TalentTagger</span>
         </div>
+        <div className="navbar-spacer" />
       </nav>
       <main className="main-content">
         <h1>Resume Skill Extractor</h1>
