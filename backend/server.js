@@ -9,19 +9,94 @@ app.use(cors());
 const upload = multer({ storage: multer.memoryStorage() });
 
 const skillsList = [
-  "javascript", "react", "node.js", "express", "mongodb", "python", "java", "c++", "c#", "ruby", 
-  "php", "swift", "kotlin", "go", "rust", "html", "css", "sass", "less", "bootstrap", "tailwind", 
-  "jquery", "angular", "vue.js", "svelte", "sql", "mysql", "postgresql", "sqlite", "oracle", 
-  "nosql", "redis", "cassandra", "elasticsearch", "git", "github", "bitbucket", "gitlab", "svn", 
-  "docker", "kubernetes", "jenkins", "travis ci", "circle ci", "ansible", "terraform", "aws", 
-  "azure", "google cloud", "heroku", "digitalocean", "rest", "graphql", "soap", "agile", "scrum", 
-  "kanban", "tdd", "bdd", "machine learning", "deep learning", "ai", "data science", "big data", 
-  "hadoop", "spark", "tensorflow", "pytorch", "keras", "unity", "unreal engine", "game development", 
-  "cybersecurity", "penetration testing", "ethical hacking", "blockchain", "ethereum", "smart contracts", 
-  "iot", "embedded systems", "ui/ux design", "figma", "sketch", "adobe xd", "photoshop", "illustrator", 
-  "indesign", "seo", "digital marketing", "content writing", "project management", "team leadership", 
-  "communication skills", "problem solving"
+  // Core Languages & Paradigms
+  "javascript", "typescript", "python", "java", "c", "c++", "c#", "go", "rust", "ruby", "php",
+  "swift", "kotlin", "scala", "perl", "matlab", "r", "dart", "elixir",
+
+  // Front-end Frameworks & UI
+  "html", "css", "sass", "less", "bootstrap", "tailwind", "material ui",
+  "react", "vue.js", "angular", "svelte", "ember.js", "jquery",
+  "react native", "flutter", "ionic", "electron",
+
+  // Back-end & APIs
+  "node.js", "express", "spring boot", "django", "flask", "ruby on rails", "laravel",
+  "graphql", "rest", "soap", "grpc", "prisma", "typeorm",
+
+  // Databases & Data Stores
+  "sql", "mysql", "postgresql", "sqlite", "oracle", "mariadb",
+  "nosql", "mongodb", "redis", "cassandra", "couchdb", "elasticsearch",
+  "firebase", "dynamodb", "neo4j", "cockroachdb",
+
+  // DevOps & Infrastructure
+  "git", "github", "gitlab", "bitbucket", "svn",
+  "docker", "kubernetes", "docker swarm", "terraform", "ansible", "chef", "puppet",
+  "jenkins", "travis ci", "circle ci", "github actions", "azure devops",
+  "aws", "azure", "google cloud", "digitalocean", "heroku", "openstack",
+  "vmware", "vagrant",
+
+  // Monitoring & Observability
+  "prometheus", "grafana", "elk stack", "splunk", "new relic", "datadog",
+  "nagios", "zabbix", "apm", "logstash", "kibana",
+
+  // Testing & Quality
+  "junit", "pytest", "mocha", "jest", "cypress", "selenium", "playwright",
+  "jmeter", "postman", "soapui",
+  "tdd", "bdd", "unit testing", "integration testing", "performance testing",
+
+  // Methodologies & Processes
+  "agile", "scrum", "kanban", "waterfall", "lean", "devsecops", "sre",
+  "microservices", "monolithic architecture", "soa", "event-driven architecture",
+
+  // Cloud-Native & Serverless
+  "lambda", "azure functions", "google cloud functions",
+  "serverless framework", "cloudflare workers", "faas",
+
+  // Data, Analytics & BI
+  "excel", "power bi", "tableau", "qlikView",
+  "data science", "data engineering", "etl", "big data",
+  "hadoop", "spark", "kafka", "airflow", "dbt",
+  "statistics", "probability", "data visualization", "d3.js",
+
+  // AI / ML / DL
+  "machine learning", "deep learning", "ai", "tensorflow", "pytorch", "keras",
+  "scikit-learn", "xgboost", "lightgbm", "hugging face", "nlp", "computer vision",
+  "reinforcement learning", "mlops", "model drift", "onnx",
+
+  // Security & Networking
+  "cybersecurity", "ethical hacking", "penetration testing", "vulnerability assessment",
+  "nmap", "wireshark", "burp suite", "metasploit",
+  "network security", "firewalls", "vpn", "tls", "ssl", "ids/ips",
+
+  // Blockchain & Web3
+  "blockchain", "ethereum", "smart contracts", "solidity", "web3.js", "truffle",
+  "hardhat", "ipfs", "defi", "nft",
+
+  // IoT & Embedded
+  "iot", "embedded systems", "arduino", "raspberry pi", "mqtt", "zigbee",
+  "edge computing", "rtos", "bare-metal programming",
+
+  // AR/VR & Game Dev
+  "unity", "unreal engine", "c# (unity)", "c++ (unreal)", "three.js",
+  "xr", "vr", "ar", "oculus sdk", "openxr",
+
+  // Design & UX/UI
+  "figma", "sketch", "adobe xd", "photoshop", "illustrator", "indesign",
+  "wireframing", "prototyping", "user research", "accessibility", "usability testing",
+
+  // Mobile & Desktop
+  "android studio", "xcode", "jetpack compose", "swiftui", "uikit",
+  "desktop (electron)", "desktop (qt)",
+
+  // Soft Skills & Management
+  "communication skills", "team leadership", "project management",
+  "stakeholder management", "problem solving", "critical thinking",
+  "time management", "conflict resolution", "empathy",
+
+  // Emerging & Miscellaneous
+  "quantum computing", "5g", "6g", "digital twins", "robotics", "automation",
+  "gis", "spatial analysis", "computer graphics", "media streaming"
 ];
+
 
 // Escape special regex characters in skill names
 function escapeRegExp(string) {

@@ -2,14 +2,13 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import Upload from './components/upload';
 import Results from './components/Results';
+import SkillMatch from './components/SkillMatch';
 import './App.css';
 
 function App() {
   const [skills, setSkills] = useState(null);
   const [error, setError] = useState(null);
   const [isUploading, setIsUploading] = useState(false);
-
-
 
   const handleUpload = async (file) => {
     setIsUploading(true);
@@ -31,7 +30,6 @@ function App() {
     }
   };
 
-
   return (
     <div className="App">
       <nav className="navbar">
@@ -48,8 +46,24 @@ function App() {
         )}
         {isUploading && <p className="processing">Processing...</p>}
         {error && <p className="error">{error}</p>}
-        {skills && <Results skills={skills} />}
+        {skills && (
+          <>
+            <Results skills={skills} />
+            <SkillMatch resumeSkills={skills} />
+          </>
+        )}
       </main>
+      {/* --- Footer Section --- */}
+      <footer className="footer">
+        {/* Footer Section */}
+        <div className="footer-title">Dr. A. P. J. Abdul Kalam Technical University, Lucknow</div>
+        <div className="footer-title">GUVI-HCL Hackathon Project</div>
+        <div className="footer-credits">
+          Presented by: Shubham Prajapati, Akshat Srivastava, Krishna Chaturvedi
+        </div>
+        <div className="footer-copy"> GUVI-HCL Hackathon by APJ Abdul Kalam Technological University
+        </div>
+      </footer>
     </div>
   );
 }
