@@ -336,11 +336,13 @@ function SkillMatch({ resumeSkills = [] }) {
           className={mode === 'role' ? 'active' : ''}
           onClick={() => { setMode('role'); setScore(null); setMatchedSkills({ core: [], optional: [], advanced: [], flat: [] }); setMissingSkills({ core: [], optional: [], advanced: [], flat: [] }); }}
         >Select Role</button>
+        <div className="or-divider">or</div>
         <button
           className={mode === 'jd' ? 'active' : ''}
           onClick={() => { setMode('jd'); setScore(null); setMatchedSkills({ core: [], optional: [], advanced: [], flat: [] }); setMissingSkills({ core: [], optional: [], advanced: [], flat: [] }); }}
         >Paste Job Description</button>
       </div>
+
       {mode === 'role' && (
         <>
           <div className="role-select">

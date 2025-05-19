@@ -120,7 +120,7 @@ function Results({ skills }) {
 
   return (
     <div className="results-card">
-      <h2>Extracted Skills</h2>
+      <h2>Extracted Skills:</h2>
       {Object.entries(grouped).map(([category, skills]) =>
         skills.length > 0 ? (
           <div key={category} style={{ marginBottom: '1.5rem' }}>
