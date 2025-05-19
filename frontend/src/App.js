@@ -19,7 +19,7 @@ function App() {
     formData.append('resume', file);
 
     try {
-      const response = await axios.post('http://localhost:5000/upload', formData, {
+      const response = await axios.post('https://talenttagger-guvi-hcl-hackathon.onrender.com', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       setSkills(response.data.skills);
