@@ -1,6 +1,5 @@
 import React from 'react';
 
-// 1. Define your taxonomy
 const SKILL_TAXONOMY = {
   // Core programming and scripting languages
   'Programming Languages': [
@@ -79,20 +78,19 @@ const SKILL_TAXONOMY = {
 };
 
 
-// 2. Classify a skill
 function classifySkill(skill) {
   for (const [category, skills] of Object.entries(SKILL_TAXONOMY)) {
     if (skills.map(s => s.toLowerCase()).includes(skill.toLowerCase())) {
       return category;
     }
   }
-  // Default/fallback
+  
   return 'Other';
 }
 
-// 3. Group skills by category
+
 function groupSkills(skills) {
-  // Dynamically create all categories from taxonomy
+  
   const grouped = {};
   Object.keys(SKILL_TAXONOMY).forEach(category => {
     grouped[category] = [];
@@ -110,7 +108,7 @@ function groupSkills(skills) {
   return grouped;
 }
 
-// 4. Main component
+
 function Results({ skills }) {
   if (!skills || skills.length === 0) {
     return <div className="results-card"><p>No skills found.</p></div>;
@@ -121,6 +119,8 @@ function Results({ skills }) {
   return (
     <div className="results-card">
       <h2>Extracted Skills:</h2>
+      <br></br>
+      <hr></hr>
       {Object.entries(grouped).map(([category, skills]) =>
         skills.length > 0 ? (
           <div key={category} style={{ marginBottom: '1.5rem' }}>

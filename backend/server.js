@@ -98,7 +98,6 @@ const skillsList = [
 ];
 
 
-// Escape special regex characters in skill names
 function escapeRegExp(string) {
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }

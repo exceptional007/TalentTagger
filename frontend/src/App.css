@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
-/* --- Futuristic Academy Theme Variables --- */
+
 :root {
-  /* Subtle dark gradient overlay */
   --color-bg: 
     linear-gradient(120deg, rgba(255,78,80,0.08) 0%, rgba(78,229,229,0.10) 100%),
     #181c24;
@@ -27,20 +26,21 @@ body, html, #root, .App {
   box-sizing: border-box;
 }
 
-/* --- Navbar --- */
+
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   background: rgba(0,0,0,0.3);
   backdrop-filter: blur(8px);
   padding: 1rem 3rem;
   border-bottom: 1px solid var(--color-border);
   color: var(--color-text);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 700;
   font-size: 1.1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  min-height: 64px;
 }
 
 .navbar-logo {
@@ -63,13 +63,57 @@ body, html, #root, .App {
   font-size: 1.5rem;
   font-weight: 800;
   letter-spacing: 3px;
+  font-family: 'Inter', 'Poppins', sans-serif;
+  text-transform: uppercase;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+}
+
+.navbar-links a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  font-size: 1.08rem;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-bottom 0.2s;
+}
+
+.navbar-links a:hover,
+.navbar-links a:focus {
+  color: #ffb347;
+  border-bottom: 2px solid #ffb347;
+  outline: none;
 }
 
 .navbar-spacer {
-  flex: 1;
+  display: none;
 }
 
-/* --- Hero Section --- */
+@media (max-width: 700px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.7rem 1rem;
+    min-height: unset;
+  }
+  .navbar-logo {
+    margin-bottom: 0.7rem;
+  }
+  .navbar-links {
+    gap: 1.2rem;
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+}
+
+
 .hero {
   text-align: center;
   padding: 6rem 2rem 3rem 2rem;
@@ -108,7 +152,7 @@ body, html, #root, .App {
   transform: translateY(-2px) scale(1.04);
 }
 
-/* --- Info Cards Section --- */
+
 .info-cards {
   margin: 0 auto 2rem auto;
   max-width: 1200px;
@@ -165,7 +209,7 @@ body, html, #root, .App {
   box-shadow: 0 12px 40px #ffb34744;
 }
 
-/* --- Main Content & Cards (Glassmorphism) --- */
+
 .main-content,
 .upload-card,
 .results-card,
@@ -179,10 +223,10 @@ body, html, #root, .App {
   padding: 2rem;
   color: var(--color-text);
   transition: box-shadow 0.3s, background 0.3s;
-  max-width: 700px;
+  max-width: 900px;
 }
 
-/* --- Headings --- */
+
 h1 {
   text-align: center;
   color: var(--color-text);
@@ -194,7 +238,7 @@ h1 {
   background: none;
 }
 
-/* --- Status Messages --- */
+
 .processing, .error {
   text-align: center;
   font-size: 1.1rem;
@@ -213,7 +257,6 @@ h1 {
   border: 1px solid var(--color-border);
 }
 
-/* --- Buttons & Inputs --- */
 button, .upload-btn, input[type="file"]::-webkit-file-upload-button {
   background: linear-gradient(90deg, #ff7e5f 0%, #feb47b 100%);
   color: #fff;
@@ -269,7 +312,7 @@ input[type="file"]::-webkit-file-upload-button {
   transition: background 0.2s;
 }
 
-/* --- Dropdown/Select Fix for Dark Theme --- */
+
 select, 
 select:focus, 
 select option, 
@@ -283,13 +326,13 @@ select:disabled {
   box-shadow: 0 4px 24px rgba(0,0,0,0.25);
 }
 
-/* For dropdown options in Chrome/Safari */
+
 select option {
   background: #23283a !important;
   color: #fff !important;
 }
 
-/* --- Responsive --- */
+
 @media (max-width: 900px) {
   .hero h1 { font-size: 2.5rem; }
   .info-cards-row { gap: 1rem; }
@@ -322,7 +365,7 @@ select option {
   }
 }
 
-/* --- Results & Skill Tags --- */
+
 .results-card ul {
   list-style: none;
   padding: 0;
@@ -364,7 +407,7 @@ select option {
   cursor: pointer;
 }
 
-/* --- Drag & Drop --- */
+
 .drag-drop-zone {
   border: 2px dashed #64748b;
   background: var(--color-card);
@@ -394,7 +437,7 @@ select option {
 }
 
 .upload-link {
-  color: var(--color-border);
+  color: orange;
   text-decoration: underline;
   cursor: pointer;
 }
@@ -403,14 +446,14 @@ select option {
   color: var(--color-tag-upload);
 }
 
-/* --- Skill Match Card --- */
+
 .skill-match-card {
   background: var(--color-card);
   border-radius: 1rem;
   box-shadow: 0 8px 32px rgba(0,0,0,0.37);
   padding: 2rem;
   margin: 2rem auto;
-  max-width: 700px;
+  max-width: 900px;
   font-family: inherit;
   border: 1px solid var(--color-border);
   backdrop-filter: blur(12px);
@@ -497,7 +540,7 @@ select option {
   text-decoration: underline;
 }
 
-/* --- Stack Select --- */
+
 .stack-select select {
   width: 100%;
   margin: 0.5rem 0;
@@ -509,7 +552,7 @@ select option {
   color: var(--color-text);
 }
 
-/* --- Footer Section --- */
+
 .footer {
   width: 100%;
   background: rgba(0,0,0,0.3);
@@ -542,7 +585,7 @@ select option {
   font-size: 0.95rem;
 }
 
-/* --- Animations --- */
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(30px);}
   to { opacity: 1; transform: none;}
@@ -558,5 +601,238 @@ select option {
   opacity: 0.85;
 }
 .main-app-content {
-  margin-top: 72px; /* match navbar height */
+  margin-top: 72px; 
+}
+
+
+.roadmap {
+  max-width: 700px;
+  margin: 3rem auto 2rem auto;
+  padding: 2.5rem 1rem 2rem 1rem;
+  color: var(--color-text);
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.roadmap h2 {
+  color: #ffb347;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2.2rem;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.roadmap-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+  position: relative;
+  padding-left: 48px;
+}
+
+.roadmap-steps::before {
+  content: '';
+  position: absolute;
+  left: 28px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, #ffb347 0%, #23283a 100%);
+  opacity: 0.25;
+  border-radius: 2px;
+}
+
+.roadmap-step {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+}
+
+.roadmap-step-number {
+  position: absolute;
+  left: -48px;
+  top: 0;
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, #ffb347 60%, #ff7e5f 100%);
+  border: 3px solid #23283a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #181c24;
+  font-weight: 800;
+  font-size: 1.3rem;
+  box-shadow: 0 2px 8px #ffb34733;
+  z-index: 2;
+}
+
+.roadmap-step-content {
+  margin-left: 0.5rem;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  padding: 1.2rem 1.1rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  min-width: 210px;
+  max-width: 420px;
+  flex: 1;
+  text-align: left;
+}
+
+.roadmap-step-content b {
+  color: #fff;
+  font-size: 1.08rem;
+  letter-spacing: 0.5px;
+}
+
+.roadmap-step-content p {
+  color: #f8f8f8cc;
+  font-size: 0.98rem;
+  margin: 0.3rem 0 0 0;
+}
+
+
+.roadmap-step:nth-child(1) .roadmap-step-content {
+  background: #FFB6C1; 
+}
+
+.roadmap-step:nth-child(2) .roadmap-step-content {
+  background: #ADD8E6; 
+}
+
+.roadmap-step:nth-child(3) .roadmap-step-content {
+  background: #90EE90; 
+}
+
+.roadmap-step:nth-child(4) .roadmap-step-content {
+  background: #FFFFE0;
+}
+
+@media (max-width: 700px) {
+  .roadmap {
+    padding: 1.2rem 0.2rem 1.2rem 0.2rem;
+  }
+  .roadmap-steps {
+    gap: 1.2rem;
+    padding-left: 32px;
+  }
+  .roadmap-steps::before {
+    left: 10px;
+    width: 2px;
+  }
+  .roadmap-step-number {
+    left: -32px;
+    width: 28px;
+    height: 28px;
+    font-size: 1.05rem;
+  }
+  .roadmap-step-content {
+    min-width: 0;
+    max-width: 100%;
+    padding: 1.1rem 0.7rem;
+  }
+}
+
+
+.how-to-use {
+  max-width: 1200px;
+  margin: 3rem auto 2rem auto;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.how-to-use h2 {
+  color: #ffb347;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+.how-to-use-row {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.how-to-use-card {
+  flex: 1 1 220px;
+  min-width: 220px;
+  max-width: 270px;
+  background: rgba(218, 162, 98, 0.13);
+  border: 1.5px dashed #ffb347;
+  border-radius: 1.2rem;
+  box-shadow: 0 8px 32px rgba(240, 167, 66, 0);
+  padding: 2rem 1.2rem;
+  margin: 1rem 0;
+  color: var(--color-text);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s, border 0.2s;
+  position: relative;
+}
+
+.how-to-use-card span {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.how-to-use-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+  color: #ffb347;
+}
+
+.how-to-use-card p {
+  font-size: 1rem;
+  color: #f8f8f8cc;
+}
+
+.how-to-use-card:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 12px 40px #f3b24b44;
+  border: 1.5px solid #ffb347;
+}
+
+@media (max-width: 900px) {
+  .how-to-use-row { gap: 1rem; }
+}
+@media (max-width: 600px) {
+  .how-to-use-row {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .how-to-use-card {
+    max-width: 100%;
+    min-width: 0;
+    padding: 1.2rem 0.7rem;
+  }
+}
+
+.footer-credits a {
+  color: #ffb347;
+  text-decoration: underline dotted;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.footer-credits a:hover {
+  color: #fff;
+  text-decoration: underline solid;
+}
+html {
+  scroll-behavior: smooth;
+}
+#extractor,
+#features,
+#howto,
+#footer {
+  scroll-margin-top: 120px; /* adjust to your navbar height */
 }

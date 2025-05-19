@@ -221,7 +221,7 @@ function extractSkillsFromJD(jdText) {
 }
 
 function SkillMatch({ resumeSkills = [] }) {
-  const [mode, setMode] = useState('role'); // 'role' or 'jd'
+  const [mode, setMode] = useState('role'); 
   const [selectedRole, setSelectedRole] = useState('');
   const [selectedStack, setSelectedStack] = useState('');
   const [jdText, setJdText] = useState('');
@@ -262,7 +262,7 @@ function SkillMatch({ resumeSkills = [] }) {
   const handleCompare = () => {
     const normalizedResumeSkills = resumeSkills.map(s => s.toLowerCase());
 
-    // For stack roles, use modular matching
+  
     if (mode === 'role' && isStackRole) {
       let required = { core: [], optional: [], advanced: [] };
       if (showAllStacks) {
@@ -308,7 +308,7 @@ function SkillMatch({ resumeSkills = [] }) {
         : 0
       );
     }
-    // For JD mode, treat all as core
+
     else if (mode === 'jd' && jdText) {
       const required = extractSkillsFromJD(jdText);
       const matched = required.filter(skill => normalizedResumeSkills.includes(skill.toLowerCase()));
@@ -317,7 +317,7 @@ function SkillMatch({ resumeSkills = [] }) {
       setMissingSkills({ flat: missing });
       setScore(required.length ? Math.round((matched.length / required.length) * 100) : 0);
     }
-    // For all other roles, simple matching
+    
     else if (mode === 'role' && selectedRole && Array.isArray(roleObj)) {
       const required = roleObj;
       const matched = required.filter(skill => normalizedResumeSkills.includes(skill.toLowerCase()));
@@ -402,7 +402,7 @@ function SkillMatch({ resumeSkills = [] }) {
       {score !== null && (
         <div className="skill-match-result">
           <div className="score-bar">
-            <span className="score-label">🎯 Core Stack Match:</span>
+            <span className="score-label">🎯<b> Core Stack Match: </b></span>
             <span className="score-value">{score}%</span>
           </div>
           <hr></hr>
@@ -410,28 +410,28 @@ function SkillMatch({ resumeSkills = [] }) {
           {isStackRole ? (
             <>
               <div className="matched">
-                <span>✅ Core Stack:</span>
+                <span>✅ <b>Core Stack:  </b></span>
                 <span>{matchedSkills.core.length ? matchedSkills.core.join(', ') : 'None'}</span>
               </div>
               <div className="matched">
-                <span>🟡 Optional Tools:</span>
+                <span>🟡 <b>Optional Tools:  </b></span>
                 <span>{matchedSkills.optional.length ? matchedSkills.optional.join(', ') : 'None'}</span>
               </div>
               <div className="matched">
-                <span>🔴 Advanced/Bonus:</span>
+                <span>🔴 <b>Advanced/Bonus: </b></span>
                 <span>{matchedSkills.advanced.length ? matchedSkills.advanced.join(', ') : 'None'}</span>
               </div>
               <hr></hr>
               <div className="missing">
-                <span>❌ Missing Core:</span>
+                <span>❌ <b>Missing Core: </b></span>
                 <span>{missingSkills.core.length ? missingSkills.core.join(', ') : 'None'}</span>
               </div>
               <div className="missing">
-                <span>🟡 Missing Optional:</span>
+                <span>🟡 <b>Missing Optional: </b></span>
                 <span>{missingSkills.optional.length ? missingSkills.optional.join(', ') : 'None'}</span>
               </div>
               <div className="missing">
-                <span>🔴 Missing Advanced:</span>
+                <span>🔴 <b>Missing Advanced: </b></span>
                 <span>{missingSkills.advanced.length ? missingSkills.advanced.join(', ') : 'None'}</span>
               </div>
             </>
