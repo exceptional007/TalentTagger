@@ -9,6 +9,8 @@ app.use(cors({
   credentials: true
 }));
 
+app.get('/', (req, res) => res.send('Backend working'));
+
 const upload = multer({ storage: multer.memoryStorage() });
 
 const skillsList = [
