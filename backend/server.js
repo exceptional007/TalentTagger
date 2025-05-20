@@ -4,16 +4,21 @@ const pdfParse = require('pdf-parse');
 const cors = require('cors');
 
 const app = express();
+
+// Configure CORS properly to allow requests from your frontend
 app.use(cors({
-  origin: [
-    'https://effulgent-bombolone-8da271.netlify.app',
-    'http://localhost:3000' // For local development
-  ],
+  origin: 'https://effulgent-bombolone-8da271.netlify.app',
   methods: ['GET', 'POST', 'OPTIONS'],
+  credentials: true,
   allowedHeaders: ['Content-Type']
 }));
 
 app.get('/', (req, res) => res.send('Backend working'));
+
+// Add a test endpoint to verify API connectivity
+app.get('/api/test', (req, res) => {
+  res.json({ message: 'API is working!' });
+});
 
 const upload = multer({ storage: multer.memoryStorage() });
 
@@ -106,11 +111,11 @@ const skillsList = [
   "gis", "spatial analysis", "computer graphics", "media streaming"
 ];
 
-
 function escapeRegExp(string) {
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+// Updated route path with /api prefix
 app.post('/api/upload', upload.single('resume'), async (req, res) => {
   if (!req.file) {
     return res.status(400).json({ message: 'No file uploaded' });
@@ -142,8 +147,12 @@ app.post('/api/upload', upload.single('resume'), async (req, res) => {
   }
 });
 
+// Keep the original route as a fallback (optional)
+app.post('/upload', (req, res) => {
+  res.redirect('/api/upload');
+});
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server Running on Port ${PORT}`);
 });
-
