@@ -9,7 +9,7 @@ app.use(cors({
     'https://effulgent-bombolone-8da271.netlify.app',
     'http://localhost:3000' // For local development
   ],
-  methods: ['GET', 'POST'],
+  methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type']
 }));
 
@@ -111,7 +111,7 @@ function escapeRegExp(string) {
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-app.post('/upload', upload.single('resume'), async (req, res) => {
+app.post('/api/upload', upload.single('resume'), async (req, res) => {
   if (!req.file) {
     return res.status(400).json({ message: 'No file uploaded' });
   }
