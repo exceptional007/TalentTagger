@@ -5,7 +5,7 @@ const cors = require('cors');
 
 const app = express();
 app.use(cors({
-  origin: "http://localhost:3000",
+  origin: "https://earnest-meerkat-e5b519.netlify.app/",
   credentials: true
 }));
 
