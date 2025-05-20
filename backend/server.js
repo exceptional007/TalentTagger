@@ -4,10 +4,7 @@ const pdfParse = require('pdf-parse');
 const cors = require('cors');
 
 const app = express();
-app.use(cors({
-  origin: "https://effulgent-bombolone-8da271.netlify.app/",
-  credentials: true
-}));
+app.use(cors());
 
 app.get('/', (req, res) => res.send('Backend working'));
 
