@@ -117,6 +117,7 @@ function escapeRegExp(string) {
 
 // Updated route path with /api prefix
 app.post('/api/upload', upload.single('resume'), async (req, res) => {
+  console.log('Upload Working');
   if (!req.file) {
     return res.status(400).json({ message: 'No file uploaded' });
   }
