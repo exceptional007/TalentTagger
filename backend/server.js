@@ -7,7 +7,7 @@ const app = express();
 
 // Configure CORS properly to allow requests from your frontend
 app.use(cors({
-  origin: 'https://effulgent-bombolone-8da271.netlify.app',
+  origin: 'https://talent-tagger.netlify.app',
   methods: ['GET', 'POST', 'OPTIONS'],
   credentials: true,
   allowedHeaders: ['Content-Type']
