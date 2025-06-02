@@ -118,6 +118,7 @@ function escapeRegExp(string) {
 // Updated route path with /api prefix
 app.post('/api/upload', upload.single('resume'), async (req, res) => {
   console.log('Upload Working');
+  console.log('Response Headers:', res.getHeaders());
   if (!req.file) {
     return res.status(400).json({ message: 'No file uploaded' });
   }
@@ -152,6 +153,8 @@ app.post('/api/upload', upload.single('resume'), async (req, res) => {
 app.post('/upload', (req, res) => {
   res.redirect('/api/upload');
 });
+
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
